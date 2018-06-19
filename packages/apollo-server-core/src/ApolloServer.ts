@@ -16,7 +16,7 @@ import {
 } from 'graphql';
 import { GraphQLExtension } from 'graphql-extensions';
 import { EngineReportingAgent } from 'apollo-engine-reporting';
-import { InMemoryKeyValueCache } from 'apollo-datasource-rest';
+import { InMemoryKeyValueCache } from 'apollo-server-caching';
 
 import {
   SubscriptionServer,

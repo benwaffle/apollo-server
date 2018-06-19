@@ -1,5 +1,6 @@
 import { advanceTimeBy, mockDate, unmockDate } from './__mocks__/date';
 import { KeyValueCache } from '../src/KeyValueCache';
+
 export function testKeyValueCache(keyValueCache: KeyValueCache) {
   describe('KeyValueCache Test Suite', () => {
     beforeAll(() => {
@@ -34,12 +35,12 @@ export function testKeyValueCache(keyValueCache: KeyValueCache) {
       await keyValueCache.set('long', 'l', { ttl: 5 });
       expect(await keyValueCache.get('short')).toBe('s');
       expect(await keyValueCache.get('long')).toBe('l');
-      advanceTimeBy(1000);
-      jest.advanceTimersByTime(1000);
+      advanceTimeBy(1100);
+      jest.advanceTimersByTime(1100);
       expect(await keyValueCache.get('short')).not.toBeDefined();
       expect(await keyValueCache.get('long')).toBe('l');
-      advanceTimeBy(4000);
-      jest.advanceTimersByTime(4000);
+      advanceTimeBy(4100);
+      jest.advanceTimersByTime(4100);
       expect(await keyValueCache.get('short')).not.toBeDefined();
       expect(await keyValueCache.get('long')).not.toBeDefined();
     });
@@ -119,11 +120,11 @@ export function testKeyValueCache(keyValueCache: KeyValueCache) {
         ttl: 10,
         tags: ['tag1'],
       });
-      advanceTimeBy(5000);
-      jest.advanceTimersByTime(5000);
+      advanceTimeBy(5100);
+      jest.advanceTimersByTime(5100);
       expect(await keyValueCache.get('key1')).toBe('v1');
-      advanceTimeBy(5000);
-      jest.advanceTimersByTime(5000);
+      advanceTimeBy(5100);
+      jest.advanceTimersByTime(5100);
       // key has expired
       await keyValueCache.invalidate(['tag1']);
       expect(await keyValueCache.get('key1')).not.toBeDefined();

@@ -1,7 +1,7 @@
 import CachePolicy from 'http-cache-semantics';
 
-import { KeyValueCache } from './KeyValueCache';
-import { InMemoryKeyValueCache } from './InMemoryKeyValueCache';
+import { KeyValueCache } from 'apollo-server-caching';
+import { InMemoryKeyValueCache } from 'apollo-server-caching';
 
 export class HTTPCache {
   constructor(
